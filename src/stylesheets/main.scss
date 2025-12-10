@@ -1,3 +1,311 @@
-/* Your styles go here */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+$primary: #0fb8a2;
+$secondary: #f97316;
+$dark: #0f172a;
+$light: #f6f8fb;
+$body-bg: $light;
+$body-color: $dark;
+$body-font-family: "Manrope", "Segoe UI", Tahoma, sans-serif;
+$headings-font-family: "Space Grotesk", "Manrope", "Segoe UI", sans-serif;
+$headings-color: $dark;
+$line-height-base: 1.6;
+$border-radius: 1rem;
+$btn-border-radius: 999px;
+$btn-padding-y: 0.7rem;
+$btn-padding-x: 1.2rem;
+$btn-font-weight: 700;
+$input-border-radius: 0.95rem;
+$navbar-padding-y: 1rem;
+$navbar-light-color: rgba($dark, 0.72);
+$navbar-light-hover-color: $primary;
+$link-color: $primary;
+$link-hover-color: darken($primary, 8%);
+$card-border-color: rgba($dark, 0.08);
+$card-cap-padding-y: 1rem;
+$card-cap-padding-x: 1.2rem;
+$enable-shadows: true;
+
 @import "bootstrap/scss/bootstrap.scss";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+:root {
+  --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.16);
+  --section-padding: 4.5rem;
+}
+
+body {
+  background-color: $light;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-spacing {
+  padding: var(--section-padding) 0;
+}
+
+.section-lead {
+  max-width: 720px;
+  color: rgba($dark, 0.75);
+}
+
+.eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: $secondary;
+}
+
+.navbar {
+  backdrop-filter: blur(8px);
+  background-color: rgba(#ffffff, 0.92);
+  border-bottom: 1px solid rgba($dark, 0.05);
+
+  .nav-link {
+    font-weight: 700;
+  }
+}
+
+.hero {
+  position: relative;
+  padding: 9rem 0 6rem;
+  background: linear-gradient(120deg, rgba($dark, 0.88) 0%, rgba($primary, 0.75) 55%, rgba($secondary, 0.7) 100%),
+    url("../images/ford_fusion.png") center / cover no-repeat;
+  color: #fff;
+  overflow: hidden;
+  isolation: isolate;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 2rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.stats-row small {
+  color: rgba(#ffffff, 0.8);
+}
+
+.offer-card {
+  background: #fff;
+  border-radius: 1.4rem;
+  padding: 1.75rem;
+  border: 1px solid rgba($dark, 0.06);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-control,
+.form-select {
+  background-color: $light;
+  border: 1px solid transparent;
+  padding: 0.8rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &:focus {
+    border-color: rgba($primary, 0.4);
+    box-shadow: 0 0 0 0.15rem rgba($primary, 0.25);
+  }
+}
+
+.step-card {
+  background: #fff;
+  border: 1px solid rgba($dark, 0.06);
+  border-radius: 1.1rem;
+  padding: 1.4rem;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  box-shadow: 0 12px 30px rgba($dark, 0.08);
+}
+
+.step-number {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, $primary, lighten($primary, 10%));
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.advantage-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.advantage-item {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid rgba($dark, 0.06);
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  box-shadow: 0 10px 24px rgba($dark, 0.06);
+
+  i {
+    color: $primary;
+    font-size: 1.1rem;
+    margin-top: 0.1rem;
+  }
+}
+
+.testimonial-card {
+  background: #fff;
+  border: 1px solid rgba($dark, 0.08);
+  border-radius: 1.2rem;
+  padding: 1.5rem;
+  box-shadow: 0 16px 32px rgba($dark, 0.08);
+}
+
+.avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba($primary, 0.15);
+  color: $primary;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 1rem;
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: static;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid rgba($dark, 0.1);
+    box-shadow: 0 10px 24px rgba($dark, 0.08);
+
+    span {
+      filter: invert(48%) sepia(30%) saturate(510%) hue-rotate(116deg) brightness(95%) contrast(90%);
+    }
+  }
+}
+
+.cta-section {
+  background: linear-gradient(120deg, rgba($dark, 0.85), rgba($primary, 0.7)), url("../images/ford_f150_truck.png") center / cover no-repeat;
+  border: 1px solid rgba(#ffffff, 0.2);
+  box-shadow: var(--shadow-soft);
+}
+
+.accordion-button {
+  font-weight: 700;
+  box-shadow: none;
+
+  &::after {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    background: rgba($primary, 0.1);
+    color: $primary;
+    content: "+";
+    background-image: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+  }
+
+  &:not(.collapsed)::after {
+    content: "-";
+    transform: none;
+  }
+}
+
+.accordion-item {
+  border: 1px solid rgba($dark, 0.07);
+  border-radius: 0.9rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba($dark, 0.06);
+
+  + .accordion-item {
+    margin-top: 0.75rem;
+  }
+}
+
+.purchase-card {
+  border-radius: 1.15rem;
+  box-shadow: 0 16px 36px rgba($dark, 0.08);
+
+  .card-img-top {
+    height: 210px;
+    object-fit: cover;
+    border-top-left-radius: 1.15rem;
+    border-top-right-radius: 1.15rem;
+    background: #f1f4f9;
+  }
+
+  ul li {
+    margin-bottom: 0.4rem;
+  }
+}
+
+.footer {
+  background: #fff;
+  border-top: 1px solid rgba($dark, 0.08);
+
+  .social {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $light;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $dark;
+    border: 1px solid rgba($dark, 0.08);
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #fff;
+      background: $primary;
+      border-color: $primary;
+    }
+  }
+
+  .footer-links li {
+    margin-bottom: 0.35rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .hero {
+    padding-top: 8rem;
+  }
+
+  .navbar {
+    background-color: #fff;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .hero::after {
+    inset: 1rem;
+  }
+}
